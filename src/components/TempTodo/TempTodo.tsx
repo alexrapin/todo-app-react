@@ -1,14 +1,19 @@
-/* eslint-disable prettier/prettier */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext } from 'react';
 import { TodoContext } from '../../context/TodoContext';
 
-export const TempTodo: React.FC = React.memo(() => {
+export const TempTodo: React.FC = React.memo(function TempTodo() {
   const { tempTodo } = useContext(TodoContext);
 
   return (
     <li data-cy="Todo" className="todo">
-      <label className="todo__status-label">
-        <input data-cy="TodoStatus" type="checkbox" className="todo__status" />
+      <label htmlFor="todo-status" className="todo__status-label">
+        <input
+          id="todo-status"
+          data-cy="TodoStatus"
+          type="checkbox"
+          className="todo__status"
+        />
       </label>
 
       <span data-cy="TodoTitle" className="todo__title">
